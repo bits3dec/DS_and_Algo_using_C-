@@ -1,0 +1,11 @@
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\bin\Debug\netcoreapp2.2\LongestPalindrome.deps.json
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\bin\Debug\netcoreapp2.2\LongestPalindrome.runtimeconfig.json
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\bin\Debug\netcoreapp2.2\LongestPalindrome.runtimeconfig.dev.json
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\bin\Debug\netcoreapp2.2\LongestPalindrome.dll
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\bin\Debug\netcoreapp2.2\LongestPalindrome.pdb
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\obj\Debug\netcoreapp2.2\LongestPalindrome.csprojAssemblyReference.cache
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\obj\Debug\netcoreapp2.2\LongestPalindrome.csproj.CoreCompileInputs.cache
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\obj\Debug\netcoreapp2.2\LongestPalindrome.AssemblyInfoInputs.cache
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\obj\Debug\netcoreapp2.2\LongestPalindrome.AssemblyInfo.cs
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\obj\Debug\netcoreapp2.2\LongestPalindrome.dll
+D:\Study\DS and Algorithm\Arrays\LongestPalindrome\obj\Debug\netcoreapp2.2\LongestPalindrome.pdb
