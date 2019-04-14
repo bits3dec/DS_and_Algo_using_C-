@@ -1,0 +1,114 @@
+0 - 1
+1 - 2
+2 - 3
+3 - 4
+2 - 5
+5 - 6
+6 - 7
+2 - 8
+
+
+Folowing is the MST of the given graph
+0 - 1 -&gt; 4#include<iostream>
+#include<list>
+#include<queue>
+#include<limits.h>
+
+using namespace std;
+
+typedef pair<int, int> iPair;
+
+class Graph
+{
+    int v;
+    list<iPair> *adj;
+    
+    public:
+    Graph(int v);
+    void AddEdge(int u, int v, int w);
+    void PrimMST();
+};
+
+Graph :: Graph(int v)
+{
+    this->v = v;
+    adj = new list<iPair>[v];
+}
+
+void Graph :: AddEdge(int u, int v, int w)
+{
+    adj[u].push_back(make_pair(v, w));
+    adj[v].push_back(make_pair(u, w));
+}
+
+void Graph :: PrimMST()
+{
+    priority_queue<iPair, vector<iPair>, greater<iPair>> pq;
+    
+    vector<int> parent(v, -1);
+    vector<int> key(v, INT_MAX);
+    vector<bool> inMST(v, false);
+    
+    int src = 0;
+    key[src] = 0;
+    pq.push(make_pair(key[src], src));
+    
+    while(pq.empty() == false)
+    {
+        int u = pq.top().second;
+        pq.pop();
+        inMST[u] = true;
+        
+        list<iPair> :: iterator i;
+        for(i = adj[u].begin(); i != adj[u].end(); ++i)
+        {
+            int v = (*i).first;
+            int weight = (*i).second;
+            
+            if(inMST[v] == false && key[v] > weight)
+            {
+                key[v] = weight;
+                parent[v] = u;
+                pq.push(make_pair(weight, v));
+            }
+        }
+    }
+    
+    //print MST
+    cout<<"Folowing is the MST of the given graph\n";
+    for(int i = 1; i < v; ++i)
+        cout<<parent[i]<<" - "<<i<<" -> "<<key[i]<<endl;
+}
+
+int main() 
+{ 
+    // create the graph given in above fugure 
+    int V = 9; 
+    Graph G(V); 
+  
+    //  making above shown graph 
+    G.AddEdge(0, 1, 4); 
+    G.AddEdge(0, 7, 8); 
+    G.AddEdge(1, 2, 8); 
+    G.AddEdge(1, 7, 11); 
+    G.AddEdge(2, 3, 7); 
+    G.AddEdge(2, 8, 2); 
+    G.AddEdge(2, 5, 4); 
+    G.AddEdge(3, 4, 9); 
+    G.AddEdge(3, 5, 14); 
+    G.AddEdge(4, 5, 10); 
+    G.AddEdge(5, 6, 2); 
+    G.AddEdge(6, 7, 1); 
+    G.AddEdge(6, 8, 6); 
+    G.AddEdge(7, 8, 7); 
+  
+    G.PrimMST(); 
+  
+    return 0; 
+} 
+2 - 3 -&gt; 7
+3 - 4 -&gt; 9
+2 - 5 -&gt; 4
+5 - 6 -&gt; 2
+6 - 7 -&gt; 1
+2 - 8 -&gt; 2

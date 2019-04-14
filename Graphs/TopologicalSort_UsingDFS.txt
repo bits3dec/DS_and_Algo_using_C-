@@ -1,0 +1,82 @@
+#include<iostream>
+#include<list>
+#include<stack>
+
+using namespace std;
+
+class Graph
+{
+    int v;
+    list<int> *adj;
+    void DFSUtil(bool visited[], int u, stack<int> &st);
+    
+    public:
+    Graph(int v);
+    void addEdge(int u, int v);
+    void DFS();
+};
+
+Graph :: Graph(int v)
+{
+    this->v = v;
+    adj = new list<int> [v];
+}
+
+void Graph :: addEdge(int u, int v)
+{
+    adj[u].push_back(v);
+}
+
+void Graph :: DFSUtil(bool visited[], int u, stack<int> &st)
+{
+    visited[u] = true;
+    
+    list<int> :: iterator i;
+    
+    for(i = adj[u].begin(); i != adj[u].end(); ++i)
+    {
+        if(visited[*i] == false)
+            DFSUtil(visited, *i, st);
+    }
+    
+    st.push(u);
+}
+
+void Graph :: DFS()
+{
+    bool *visited = new bool [v];
+    stack<int> st;
+    
+    for(int u = 0; u < v; ++u)
+        visited[u] = false;
+        
+    for(int u = 0; u < v; ++u)
+    {
+        if(visited[u] == false)
+            DFSUtil(visited, u, st);
+    }
+    
+    while(st.empty() == false)
+    {
+        cout<<st.top()<<" ";
+        st.pop();
+    }
+    
+    return;
+}
+
+int main()
+{
+    Graph G(6);
+    G.addEdge(5,2);
+    G.addEdge(5,0);
+    G.addEdge(4,0);
+    G.addEdge(4,1);
+    G.addEdge(2,3);
+    G.addEdge(3,1);
+    
+    cout<<"Following is a topological sort of the given graph \n";
+    G.DFS();
+    
+    return 0;
+}

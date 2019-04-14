@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCS", "LCS\LCS.csproj", "{4E6FF436-0519-4863-AE69-78C709372043}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E6FF436-0519-4863-AE69-78C709372043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6FF436-0519-4863-AE69-78C709372043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6FF436-0519-4863-AE69-78C709372043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6FF436-0519-4863-AE69-78C709372043}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25BDF31C-A4E7-421D-B571-5C54803F55CE}
+	EndGlobalSection
+EndGlobal

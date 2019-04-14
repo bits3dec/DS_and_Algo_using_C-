@@ -1,0 +1,71 @@
+#include<iostream>
+
+#define V 4
+#define C 3
+
+using namespace std;
+
+bool GraphColoringUtil(int Graph[][V], int colors[], int vertex);
+bool IsSafe(int Graph[][V], int colors[], int currentVertex, int c);
+void GraphColoring(int Graph[][V]);
+void PrintColors(int colors[]);
+
+void GraphColoring(int Graph[][V])
+{
+    int *colors = new int[C];
+    for(int i = 0; i < V; ++i)
+        colors[i] = 0;
+    
+    int src = 0;    
+    if(GraphColoringUtil(Graph, colors, src))
+        PrintColors(colors);
+    else
+        cout<< "Graph coloring is not possible\n";
+}
+
+bool GraphColoringUtil(int Graph[][V], int colors[], int vertex)
+{
+    if(vertex == V)
+        return true;
+        
+    for(int c = 1; c <= C; ++c )
+    {
+        if(IsSafe(Graph, colors, vertex, c))
+        {
+            colors[vertex] = c;
+            if(GraphColoringUtil(Graph, colors, ++vertex))
+                 return true;
+            colors[vertex] = 0; //If assigning the color above doesnot lead to a solution then remove the color and check for other colors  
+        }    
+    }
+    
+    return false;
+}
+
+bool IsSafe(int Graph[][V], int colors[], int currentVertex, int c)
+{
+    for(int v = 0; v < V; v++)
+    {
+        if(Graph[currentVertex][v] && colors[v] == c)
+            return false;
+    }
+    
+    return true;
+}
+
+void PrintColors(int colors[])
+{   
+    for(int i = 0; i < C; ++i)
+        cout << colors[i] << " ";
+}
+
+int main()
+{
+    int Graph[][V] = { {0,1,1,1},
+                       {1,0,1,1},
+                       {1,1,0,1},
+                       {1,1,1,0}
+                     };                
+    GraphColoring(Graph);
+    return 0;
+}

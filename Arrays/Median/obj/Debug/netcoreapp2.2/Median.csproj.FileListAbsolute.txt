@@ -1,0 +1,11 @@
+D:\Study\DS and Algorithm\Arrays\Median\obj\Debug\netcoreapp2.2\Median.csprojAssemblyReference.cache
+D:\Study\DS and Algorithm\Arrays\Median\obj\Debug\netcoreapp2.2\Median.csproj.CoreCompileInputs.cache
+D:\Study\DS and Algorithm\Arrays\Median\obj\Debug\netcoreapp2.2\Median.AssemblyInfoInputs.cache
+D:\Study\DS and Algorithm\Arrays\Median\obj\Debug\netcoreapp2.2\Median.AssemblyInfo.cs
+D:\Study\DS and Algorithm\Arrays\Median\bin\Debug\netcoreapp2.2\Median.deps.json
+D:\Study\DS and Algorithm\Arrays\Median\bin\Debug\netcoreapp2.2\Median.runtimeconfig.json
+D:\Study\DS and Algorithm\Arrays\Median\bin\Debug\netcoreapp2.2\Median.runtimeconfig.dev.json
+D:\Study\DS and Algorithm\Arrays\Median\bin\Debug\netcoreapp2.2\Median.dll
+D:\Study\DS and Algorithm\Arrays\Median\bin\Debug\netcoreapp2.2\Median.pdb
+D:\Study\DS and Algorithm\Arrays\Median\obj\Debug\netcoreapp2.2\Median.dll
+D:\Study\DS and Algorithm\Arrays\Median\obj\Debug\netcoreapp2.2\Median.pdb

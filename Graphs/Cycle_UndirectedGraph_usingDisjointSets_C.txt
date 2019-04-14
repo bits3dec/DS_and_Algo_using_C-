@@ -1,0 +1,110 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Edge
+{
+    int src;
+    int dest;
+};
+typedef struct Edge Edge;
+
+struct Graph
+{
+    int v;
+    int e;
+    Edge *edges; //Array of edges to represent a graph
+};
+typedef struct Graph Graph;
+
+struct Subset
+{
+    int parent;
+    int rank;
+};
+typedef struct Subset Subset;
+
+Graph* CreateGraph(int v, int e)
+{
+    Graph *G = (Graph* )malloc(sizeof(Graph));
+    G->v = v;
+    G->e = e;
+    G->edges = (Edge* )malloc(G->e * sizeof(Edge));
+    
+    return G;
+}
+
+int Find(Subset subsets[], int key)
+{
+    if(subsets[key].parent != key)
+        subsets[key].parent = Find(subsets, subsets[key].parent);
+        
+    return subsets[key].parent;
+}
+
+void Union(Subset subsets[], int x, int y)
+{
+    int x_root = Find(subsets, x);
+    int y_root = Find(subsets, y);
+
+    if(subsets[x_root].rank > subsets[y_root].rank)
+        subsets[y_root].parent = x_root;
+    else if(subsets[x_root].rank < subsets[y_root].rank)
+        subsets[x_root].parent = y_root;
+    else
+    {
+        subsets[y_root].parent = x_root;
+        subsets[x_root].rank++;
+    }
+}
+
+int IsCycle(Graph* g)
+{
+    Subset *subsets = (Subset* )malloc(g->v * sizeof(Subset));
+    
+    int i = 0;
+    for(i = 0; i < g->v; ++i)
+    {
+        subsets[i].parent = i;
+        subsets[i].rank = 0;
+    }
+    
+    int e = 0;
+    for(e = 0; e < g->e; ++e)
+    {
+        int x = Find(subsets, g->edges[e].src);
+        int y = Find(subsets, g->edges[e].dest);
+        
+        if(x == y)
+            return 1;
+        
+        Union(subsets, x, y);
+    }
+    
+    return 0;
+}
+
+
+int main()
+{
+    int v = 4;
+    int e = 3;
+    Graph* G = CreateGraph(v, e);
+    
+    G->edges[0].src = 0;
+    G->edges[0].dest = 1;
+    
+    G->edges[1].src = 1;
+    G->edges[1].dest = 0;
+    
+    G->edges[2].src = 2;
+    G->edges[2].dest = 3;
+    
+    int res = IsCycle(G);
+    
+    if(res == 1)
+        printf("The given graph has a cycle.\n");
+    else
+        printf("The given graph does not have a cycle.\n");
+        
+    return 0;
+}

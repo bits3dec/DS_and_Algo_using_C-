@@ -1,0 +1,11 @@
+D:\Study\DS and Algorithm\Arrays\3Sum\obj\Debug\netcoreapp2.2\3Sum.csprojAssemblyReference.cache
+D:\Study\DS and Algorithm\Arrays\3Sum\obj\Debug\netcoreapp2.2\3Sum.csproj.CoreCompileInputs.cache
+D:\Study\DS and Algorithm\Arrays\3Sum\obj\Debug\netcoreapp2.2\3Sum.AssemblyInfoInputs.cache
+D:\Study\DS and Algorithm\Arrays\3Sum\obj\Debug\netcoreapp2.2\3Sum.AssemblyInfo.cs
+D:\Study\DS and Algorithm\Arrays\3Sum\bin\Debug\netcoreapp2.2\3Sum.deps.json
+D:\Study\DS and Algorithm\Arrays\3Sum\bin\Debug\netcoreapp2.2\3Sum.runtimeconfig.json
+D:\Study\DS and Algorithm\Arrays\3Sum\bin\Debug\netcoreapp2.2\3Sum.runtimeconfig.dev.json
+D:\Study\DS and Algorithm\Arrays\3Sum\bin\Debug\netcoreapp2.2\3Sum.dll
+D:\Study\DS and Algorithm\Arrays\3Sum\bin\Debug\netcoreapp2.2\3Sum.pdb
+D:\Study\DS and Algorithm\Arrays\3Sum\obj\Debug\netcoreapp2.2\3Sum.dll
+D:\Study\DS and Algorithm\Arrays\3Sum\obj\Debug\netcoreapp2.2\3Sum.pdb

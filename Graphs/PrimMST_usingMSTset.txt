@@ -1,0 +1,64 @@
+#include<iostream>
+#include<limits.h>
+using namespace std;
+
+#define V 5
+#define NIL -1
+
+int minKey(int graph[V][V], int key[], bool inMST[])
+{
+    int minKey = -1;
+    int min = INT_MAX;
+    
+    for(int i = 0; i < V; ++i)
+    {
+        if(inMST[i] == false && key[i] < min)
+        {
+            min = key[i];
+            minKey = i;
+        }
+    }
+    return minKey;
+}
+
+void PrimMST(int graph[V][V])
+{
+    int parent[V];
+    int key[V];
+    bool inMST[V];
+    
+    for(int i = 0; i < V; i++)
+    {
+        parent[i] = NIL;
+        key[i] = INT_MAX;
+        inMST[i] = false;
+    }
+    
+    int e = 0;
+    key[0] = 0;
+    parent[0] = NIL;
+    
+    while(e < V-1)
+    {
+        int u = minKey(graph, key, inMST);
+        inMST[u] = true;
+        
+        for(int v = 0; v < V; ++v)
+        {
+            if(graph[u][v] && inMST[v] == false && graph[u][v] < key[v])
+            {
+                parent[v] = u;
+                key[v] = graph[u][v];
+            }
+        }
+    }
+    
+    cout<<"The MST for the given graph is:\n";
+    for(int i = 0; i < V-1; ++i)
+        cout<< i<< "->"<< parent[i]<<" "<<graph[parent[i]][i]<< endl;
+}
+
+int main()
+{
+    return 0;
+}

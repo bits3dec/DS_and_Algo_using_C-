@@ -1,0 +1,65 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+class Graph
+{
+    int V;
+    list<int> *adj;
+    void DFSUtil(int v, bool visited[]);
+    
+    public:
+        Graph(int V);
+        void AddEdge(int u, int v);
+        void DFS(int s);
+};
+
+Graph :: Graph (int V)
+{
+    this->V = V;
+    adj = new list<int> [V];
+}
+
+void Graph :: AddEdge(int u, int v)
+{
+    adj[u].push_back(v);
+}
+
+void Graph :: DFS(int s)
+{
+    bool *visited = new bool [V];
+    
+    for(int i = 0; i < V; i++)
+        visited[i] = false;
+    
+    DFSUtil(s, visited);
+}
+
+void Graph :: DFSUtil(int s, bool visited[])
+{
+    visited[s] = true;
+    cout <<s<<" ";
+    
+    list<int> :: iterator i;
+    
+    for(i = adj[s].begin(); i != adj[s].end(); i++)
+    {
+        int v = *i;
+        if(visited[v] == false)
+            DFSUtil(v, visited);
+    }
+}
+
+int main() 
+{
+	Graph G(4);
+	G.AddEdge(0,1);
+    G.AddEdge(0,2);
+	G.AddEdge(2,3);
+	G.AddEdge(3,0);
+
+    cout <<"DFS" << endl;
+    G.DFS(2);
+    
+    return 0;
+}

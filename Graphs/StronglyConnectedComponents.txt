@@ -1,0 +1,118 @@
+#include<iostream>
+#include<list>
+#include<stack>
+
+using namespace std;
+
+class Graph
+{
+    int v;
+    list<int> *adj;
+    
+    public:
+    Graph(int v);
+    void AddEdge(int u, int v);
+    void DFSUtil(int u, bool visited[]);
+    void FillOrder(int u, bool visited[], stack<int> &st);
+    Graph GetTransposedGraph();
+    void PrintSCCs();
+};
+
+Graph :: Graph(int v)
+{
+    this->v = v;
+    adj = new list<int>[v];
+}
+
+void Graph :: AddEdge(int u, int v)
+{
+    adj[u].push_back(v);
+}
+
+void Graph :: DFSUtil(int u, bool visited[])
+{
+    visited[u] = true;
+    cout << u << " ";
+    
+    list<int> :: iterator i;
+    for(i = adj[u].begin(); i != adj[u].end(); ++i)
+    {
+        if(visited[*i] == false)
+            DFSUtil(*i, visited);
+    }
+}
+
+void Graph :: FillOrder(int u, bool visited[], stack<int> &st)
+{
+    visited[u] = true;
+    
+    list<int> :: iterator i;
+    for(i = adj[u].begin(); i != adj[u].end(); ++i)
+    {
+        if(visited[*i] == false)
+            FillOrder(*i, visited, st);
+    }
+    st.push(u); // All vertices in reachable from "u" are processed. Store "u" in stack.
+}
+
+Graph Graph :: GetTransposedGraph()
+{
+    Graph Gr(v);
+    
+    for(int u = 0; u < v; ++u)
+    {  
+        list<int> :: iterator i;
+        for(i = adj[u].begin(); i != adj[u].end(); ++i)
+            Gr.adj[*i].push_back(u);
+    }
+    
+    return Gr;
+}
+
+void Graph :: PrintSCCs()
+{
+    bool *visited = new bool[v];
+    stack<int> st;
+    
+    for(int i = 0; i < v; ++i)
+        visited[i] = false;   // Reset visited array for FillOrder traversal
+        
+    for(int i = 0; i < v; ++i)
+    {
+        if(visited[i] == false)
+            FillOrder(i, visited, st);  // fill the stack in increasing order of finishing time i.e. the top moste element will have the maximum finishing time
+    }
+    
+    Graph Gr = GetTransposedGraph();
+    
+    for(int i = 0; i < v; ++i)
+        visited[i] = false;  // Reset visited array for DFS traversal in the transposed graph
+
+    
+    while(st.empty() == false)
+    {
+        int v = st.top();
+        st.pop();
+        
+        if(visited[v] == false)
+        {
+            Gr.DFSUtil(v, visited);
+            cout << endl;
+        }
+    }
+}
+
+int main()
+{
+    Graph G(5);
+    G.AddEdge(1,0);
+    G.AddEdge(0,2);
+    G.AddEdge(2,1);
+    G.AddEdge(0,3);
+    G.AddEdge(3,4);
+    
+    cout<<"Following are the strongly connected components in the given graph: \n";
+    G.PrintSCCs();
+    
+    return 0;
+}
