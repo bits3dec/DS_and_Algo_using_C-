@@ -39,11 +39,6 @@ namespace ConsoleApp1
         //Sort the city pairs based on the souther point. If the souther points are same then sort based on the northern points
         private void SortBasedOnSouth(CityPair[] cityPairs)
         {
-            //Array.Sort(cityPairs, new Comparison<CityPair>
-            //                        ((a, b) => 
-            //                             a.x_South.CompareTo(b.x_South)
-            //                        ));
-
             Array.Sort(cityPairs, 0, cityPairs.Length, new MyCityPairComparer());
         }
 
