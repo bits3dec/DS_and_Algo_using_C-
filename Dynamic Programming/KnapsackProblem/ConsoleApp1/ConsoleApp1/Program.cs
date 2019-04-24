@@ -42,7 +42,7 @@ namespace ConsoleApp1
         //Bottom-up Approach using DP. T: O(nc) S:O(nc)
         private static int knapSackProblem_DP(int c, int n, int[] v, int[] wt)
         {
-            //Build a table to store calculated values
+            //T[i,j] denotes the maximum value that we can collect from arr[0]....arr[i-1]
             int[,] T = new int[n + 1, c + 1];
 
             for(int i = 0; i < n+1; ++i)

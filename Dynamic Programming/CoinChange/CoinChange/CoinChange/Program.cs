@@ -27,8 +27,11 @@ namespace CoinChange
             int res_recursive = coinChangeSolver.MinCoins_Recursive(coins, n, v);
             Console.WriteLine($"Using simple recursion -> Minimum coin change required for sum: {v} is : {res_recursive}");
 
-            int res_DP = coinChangeSolver.MinCoins_DP(coins, n, v);
-            Console.WriteLine($"Using DP -> Minimum coin change required for sum: {v} is : {res_DP}");
+            int res_DP_2D = coinChangeSolver.MinCoins_2D(coins, v);
+            Console.WriteLine($"Using DP 2D Array -> Minimum coin change required for sum: {v} is : {res_DP_2D}");
+
+            int res_DP_1D = coinChangeSolver.MinCoins_1D(coins, n, v);
+            Console.WriteLine($"Using DP 1D Array -> Minimum coin change required for sum: {v} is : {res_DP_1D}");
         }
 
         private static void Caluclate_NumOfCoinChanges(CoinChange coinChangeSolver)
@@ -37,10 +40,9 @@ namespace CoinChange
             int n2 = coins2.Length;
             int v2 = 4;
 
-            //int num_of_changes = coinChangeSolver.NumberOfCoinChanges(coins2, n2, v2);
-            int num_of_changes = coinChangeSolver.NumberOfCoinChanges_spaceEfficient(coins2, n2, v2);
+            int num_of_changes_2D = coinChangeSolver.NumberOfCoinChanges_2D(coins2, n2, v2);
 
-            Console.WriteLine($"Using DP -> Num of coin changes possible for sum: {v2} is : {num_of_changes}");
+            Console.WriteLine($"Using DP 2D-> Num of coin changes possible for sum: {v2} is : {num_of_changes_2D}");
         }
     }
 }
