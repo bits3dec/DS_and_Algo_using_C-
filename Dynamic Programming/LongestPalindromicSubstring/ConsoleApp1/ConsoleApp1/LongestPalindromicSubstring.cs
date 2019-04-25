@@ -13,9 +13,9 @@ namespace ConsoleApp1
             if (string.IsNullOrEmpty(str))
                 return string.Empty;
 
-            char[] s = str.ToCharArray();
-            int n = s.Length;
+            int n = str.Length;
 
+            //T[i,j] denotes the longest palindromic substring from str[i].....str[j]
             bool[,] T = new bool[n, n];
 
             int maxLength = 1;
@@ -26,7 +26,7 @@ namespace ConsoleApp1
 
             for(int i = 0; i < n-1; ++i)
             {
-                if(s[i] == s[i+1])
+                if(str[i] == str[i+1])
                 {
                     T[i, i + 1] = true;
                     maxLength = 2;
@@ -39,7 +39,7 @@ namespace ConsoleApp1
                 for(int i = 0; i <= n-k; ++i)
                 {
                     int j = i + k - 1;
-                    if(s[i] == s[j] && T[i+1, j-1] == true)
+                    if(str[i] == str[j] && T[i+1, j-1] == true)
                     {
                         T[i, j] = true;
                         if (k > maxLength)
@@ -52,7 +52,7 @@ namespace ConsoleApp1
             }
 
             char[] res = new char[maxLength];
-            Array.Copy(s, startIndex, res, 0, maxLength);
+            Array.Copy(str.ToCharArray(), startIndex, res, 0, maxLength);
 
             return new string(res);
         }

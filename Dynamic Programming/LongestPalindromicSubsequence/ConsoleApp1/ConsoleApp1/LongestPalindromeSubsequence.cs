@@ -13,18 +13,18 @@ namespace ConsoleApp1
             if (string.IsNullOrEmpty(str))
                 return 0;
 
-            char[] s = str.ToCharArray();
             int n = str.Length;
 
-            int [,] L = new int[n, n];
+            //L[i,j] denotes the longest palindromic subsequence from str[i]....str[j]
+            int[,] L = new int[n, n];
 
             for(int i = 0; i < n; ++i)
                 L[i, i] = 1;
 
             for(int i = 0; i < n-1; ++i)
             {
-                if (s[i] == s[i + 1])
-                    L[i, i + 1] = 2;
+                if (str[i] == str[i + 1])
+                    L[i, i + 1] = 2; 
                 else
                     L[i, i + 1] = 1;
             }
@@ -34,7 +34,7 @@ namespace ConsoleApp1
                 for(int i = 0; i <= n-k; ++i)
                 {
                     int j = i + k - 1;
-                    if(s[i] == s[j])
+                    if(str[i] == str[j])
                         L[i, j] = L[i + 1, j - 1] + 2;
                     else
                         L[i, j] = Math.Max(L[i + 1, j], L[i, j - 1]);
