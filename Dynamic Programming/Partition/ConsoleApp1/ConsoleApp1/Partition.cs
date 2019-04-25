@@ -32,7 +32,7 @@ namespace ConsoleApp1
                     if(arr[i-1] > j)
                         S[i, j] = S[i - 1, j];
                     else if(arr[i-1] <= j)
-                        S[i, j] = S[i, j - arr[i-1]] || S[i - 1, j];
+                        S[i, j] = S[i - 1, j - arr[i-1]] || S[i - 1, j];
                 }
             }
 
