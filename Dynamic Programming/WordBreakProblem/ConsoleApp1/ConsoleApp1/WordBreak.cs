@@ -27,7 +27,7 @@ namespace ConsoleApp1
             return false;
         }
 
-        //T: O(n^2) S:O(n^2)
+        //T: O(n^3) S:O(n^2)
         public static bool WordBreak_DP(string word, HashSet<string> dict)
         {
             if (string.IsNullOrEmpty(word))
@@ -70,6 +70,7 @@ namespace ConsoleApp1
             return T[0, n - 1] != -1;
         }
 
+        //Preferred method T:O(n^2) S:O(n)
         public static bool WordBreak_DP_SpaceOptimized(string word, HashSet<string> dictionary)
         {
             if(string.IsNullOrEmpty(word))

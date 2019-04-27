@@ -50,7 +50,7 @@ void Graph :: DijkstrasAlgorithm(int s, int weight[N][N])
     
     while(pq.empty() == false)
     {
-        int u = pq.top();  //priorit_queue DeleteMin()
+        int u = pq.top();  //priority_queue DeleteMin()
         pq.pop();
         
         list<int> :: iterator i;
