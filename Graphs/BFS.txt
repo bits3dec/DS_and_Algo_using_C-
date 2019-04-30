@@ -35,6 +35,7 @@ void Graph :: BFS(int s)
         visited[i] = false;
     
     q.push(s);
+	visited[s] = true;
     
     while(q.empty() == false)
     {
@@ -42,13 +43,15 @@ void Graph :: BFS(int s)
         q.pop();
         
         cout << u << " ";
-        visited[u] = true;
         
         list<int> :: iterator i;
         for(i = adj[u].begin(); i != adj[u].end(); ++i)
         {
             if(visited[*i] == false)
+			{
                 q.push(*i);
+				visited[*i] = true;
+		    }
         }
     }
 }
