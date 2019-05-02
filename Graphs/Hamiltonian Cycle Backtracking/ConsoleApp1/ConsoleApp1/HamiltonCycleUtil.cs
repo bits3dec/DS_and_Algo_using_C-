@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     class HamiltonianUtil
     {
-        //T:O(n!) Backtracking: NP Hard Problem
+        //T:O(n!) Backtracking: NP Hard Problem (Non-deterministic Polynomial time hardness)
         public static void CheckHamiltonCycle(int[,] g, int N, int s)
         {
             int[] path = new int[N];
