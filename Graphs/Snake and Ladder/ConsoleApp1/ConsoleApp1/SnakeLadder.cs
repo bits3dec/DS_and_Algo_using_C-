@@ -39,7 +39,7 @@ namespace ConsoleApp1
                     break;
                 }
 
-                for(int j = 0; j <= (v + 6) && j < n; ++j)
+                for(int j = v + 1; j <= (v + 6) && j < n; ++j)
                 {
                     if(visited[j] == false)
                     {
