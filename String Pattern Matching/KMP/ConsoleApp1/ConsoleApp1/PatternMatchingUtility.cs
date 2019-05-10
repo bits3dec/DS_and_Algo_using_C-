@@ -9,7 +9,7 @@ namespace ConsoleApp1
     public class PatternMatchingUtility
     {
         /*
-           Proper prefix example: "ABC" -> "", "A", "BC" are proper prefix but not "ABC"
+           Proper prefix example: "ABC" -> "", "A", "AB" are proper prefix but not "ABC"
            Proper suffix example: "ABC" -> "", "C", "BC" are proper suffix but not "ABC"
            lps: longest prefix suffix table
            lps[j] denotes the length of the longest proper prefix which is also a suffix in pat[0]....pat[j]
