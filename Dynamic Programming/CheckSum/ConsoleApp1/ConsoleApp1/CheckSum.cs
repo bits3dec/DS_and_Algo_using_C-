@@ -15,7 +15,7 @@ namespace ConsoleApp1
             //S[i,j] denotes that if there exist a subset till element "ar[i-1]" whose sum is "j".
             bool[,] S = new bool[n+1, sum + 1];
 
-            //If sum is 0 then there will always be an emty set with sum as 0.
+            //If sum is 0 then there will always be an empty set with sum as 0.
             for (int i = 0; i <= n; ++i)
                 S[i, 0] = true;
 

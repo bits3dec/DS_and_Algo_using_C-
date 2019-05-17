@@ -50,7 +50,7 @@ namespace CoinChange
                         T[i, j] = Math.Min(1 + T[i, j - coins[i]],
                                            T[i - 1, j]);
                     else
-                        T[i, j] = T[i, j] = T[i - 1, j];
+                        T[i, j] = T[i - 1, j];
                 }
             }
 

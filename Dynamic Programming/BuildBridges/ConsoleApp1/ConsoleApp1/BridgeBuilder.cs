@@ -15,7 +15,7 @@ namespace ConsoleApp1
             //Sort the city pairs based on the southern city
             SortBasedOnSouth(cityPairs);
 
-            //Apply LIS on the Norther city to get the maximum bridge possile
+            //Apply LIS on the Northern city to get the maximum bridge possile
             //LIS[j] denotes the longest subsequence starting from arr[0] with the last element as arr[j]
             int[] LIS = new int[n];
 

@@ -11,9 +11,11 @@ namespace ConsoleApp1
         public int MatrixChainOrder(int[] p)
         {
             int n = p.Length - 1; ;
-
-            int[,] M = new int[n + 1, n + 1];//T[i,j] denotes the minimum scalar multiplication needed to multiply {Ai,....Aj} where Ai is a matrix
-            int[,] B = new int[n + 1, n + 1];//B[i,j] denotes the position of parenthesis to get the minimum scalar multiplications from {Ai,...Aj}
+            
+            //T[i,j] denotes the minimum scalar multiplication needed to multiply {Ai,....Aj} where Ai is a matrix
+            int[,] M = new int[n + 1, n + 1];
+            //B[i,j] denotes the position of parenthesis to get the minimum scalar multiplications from {Ai,...Aj}
+            int[,] B = new int[n + 1, n + 1];
 
             for (int i = 1; i <= n; ++i)
                 M[i, i] = 0; //Minimum scalar multiplication needed to multiply one matrix is 0
