@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2
+namespace ConsoleApp1
 {
-    public class BinaryHeapUtility
+    public class HeapUtility
     {
         public static int KthLargestElement(int[] arr, int k)
         {
@@ -20,7 +20,7 @@ namespace ConsoleApp2
 
             BuildHeap(subArr);//Min Heap
 
-            for(int i = k; i < n; ++i)
+            for (int i = k; i < n; ++i)
             {
                 if (arr[i] > subArr[0])
                 {
@@ -52,7 +52,7 @@ namespace ConsoleApp2
                 min = l;
             if (r < n && arr[r] < arr[min])
                 min = r;
-            if(min != i)
+            if (min != i)
             {
                 Swap(ref arr[i], ref arr[min]);
                 Heapify(arr, min);
