@@ -13,7 +13,7 @@ namespace ConsoleApp1
             int rows = M.GetLength(0);
             int cols = M.GetLength(1);
 
-            int[] T = new int[rows];
+            int[] T = new int[cols];
 
             for (int j = 0; j < cols; ++j)
                 T[j] = M[0, j];
