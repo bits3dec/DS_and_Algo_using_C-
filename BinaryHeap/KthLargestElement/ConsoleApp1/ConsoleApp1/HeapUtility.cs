@@ -13,7 +13,6 @@ namespace ConsoleApp1
             int n = arr.Length;
 
             int[] subArr = new int[k];
-            int[] res = new int[k];
 
             for (int i = 0; i < k; ++i)
                 subArr[i] = arr[i];

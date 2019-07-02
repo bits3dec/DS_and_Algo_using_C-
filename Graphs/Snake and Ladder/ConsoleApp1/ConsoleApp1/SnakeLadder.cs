@@ -11,7 +11,7 @@ namespace ConsoleApp1
         // This function returns minimum number of dice  
         // throws required to Reach last cell from 0'th cell  
         // in a snake and ladder game. moves[] is an array of  
-        // size n where n is no. of cells on board If there  
+        // size n where n is no. of cells on board. If there  
         // is no snake or ladder from cell i, then move[i]  
         // is -1 Otherwise move[i] contains cell to which  
         // snake or ladder at i takes to.

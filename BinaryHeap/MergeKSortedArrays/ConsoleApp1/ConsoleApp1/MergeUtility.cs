@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         public static void MergeKSortedArrays(int[][] arr, int k)
         {
-            List<int> res = new List<int>();
+            IList<int> res = new List<int>();
             Node[] subArr = new Node[k];
             int n = 0;//Total number of elements in the jagged array
 
@@ -72,7 +72,7 @@ namespace ConsoleApp1
             y = temp;
         }
 
-        private static void Print(List<int> res)
+        private static void Print(IList<int> res)
         {
             foreach (var next in res)
                 Console.Write(next + " ");

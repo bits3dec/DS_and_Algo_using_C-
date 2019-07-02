@@ -11,7 +11,7 @@ namespace ConsoleApp1
         //T:O(n)
         public static void BuildHeap(BinaryHeap h, int[] arr, int n)
         {
-            if (n > h.count)
+            if (n > h.capacity)
                 return;
 
             for (int i = 0; i < n; ++i)

@@ -16,6 +16,7 @@ namespace ConsoleApp1
             for(int i = 0; i <= k; ++i)
                 subArr[i] = arr[i];
 
+            //Min Heap
             BuildHeap(subArr);
 
             int index = 0;
