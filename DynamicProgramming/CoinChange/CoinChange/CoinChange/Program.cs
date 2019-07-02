@@ -27,9 +27,6 @@ namespace CoinChange
             int res_recursive = coinChangeSolver.MinCoins_Recursive(coins, n, v);
             Console.WriteLine($"Using simple recursion -> Minimum coin change required for sum: {v} is : {res_recursive}");
 
-            int res_DP_2D = coinChangeSolver.MinCoins_2D(coins, v);
-            Console.WriteLine($"Using DP 2D Array -> Minimum coin change required for sum: {v} is : {res_DP_2D}");
-
             int res_DP_1D = coinChangeSolver.MinCoins_1D(coins, n, v);
             Console.WriteLine($"Using DP 1D Array -> Minimum coin change required for sum: {v} is : {res_DP_1D}");
         }

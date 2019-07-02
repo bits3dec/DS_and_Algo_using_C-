@@ -29,36 +29,6 @@ namespace CoinChange
             return res;
         }
 
-        //Assuming coins[0] = 1
-        //T:O(nV) S:O(nV)
-        public int MinCoins_2D(int[] coins, int V)
-        {
-            int n = coins.Length;
-
-            //T[i,j] denotes minimum num of coins needed to get a sum "j"
-            int[,] T = new int[n, V + 1];
-            T[0, 0] = 0;
-
-            for (int j = 1; j <= V; ++j)
-                T[0, j] = j;
-
-            for (int j = 0; j <= V; ++j)
-            {
-                for (int i = 1; i < n; ++i)
-                {
-                    if (coins[i] <= j)
-                        T[i, j] = Math.Min(1 + T[i, j - coins[i]],
-                                           T[i - 1, j]);
-                    else
-                        T[i, j] = T[i - 1, j];
-                }
-            }
-
-            int res = T[n - 1, V];
-
-            return res;
-        }
-
         //T: O(nv) S: O(v))
         public int MinCoins_1D(int[] coins, int n, int v)
         {
