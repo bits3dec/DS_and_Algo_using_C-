@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Box : IComparable
+    public class Box : IComparable<Box>
     {
         public int height;
         public int width;
@@ -22,12 +22,11 @@ namespace ConsoleApp1
 
         public int BaseArea { get { return length * width; } }
 
-        public int CompareTo(object obj)
+        public int CompareTo(Box other)
         {
-            if (obj == null) return 1;
+            if (other == null) return 1;
 
-            Box secondBox = obj as Box;
-
+            Box secondBox = other as Box;
             return secondBox.BaseArea - this.BaseArea;
         }
     }

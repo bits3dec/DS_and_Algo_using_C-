@@ -42,7 +42,7 @@ namespace ConsoleApp1
                 for (int i = 0; i < j; ++i)
                 {
                     Box bottomBox = rotatedBoxes[i];
-                    if (isStackingValid(bottomBox, topBox) && MSH[i] + topBox.height > MSH[j])
+                    if (IsStackingValid(bottomBox, topBox) && MSH[i] + topBox.height > MSH[j])
                     {
                         MSH[j] = MSH[i] + topBox.height;
                         stack[j] = i;
@@ -55,7 +55,7 @@ namespace ConsoleApp1
             return maxHeight;
         }
 
-        private bool isStackingValid(Box bottomBox, Box topBox)
+        private bool IsStackingValid(Box bottomBox, Box topBox)
         {
             if (bottomBox.width > topBox.width && bottomBox.length > topBox.length)
                 return true;
@@ -66,7 +66,6 @@ namespace ConsoleApp1
         private int FindMax(int[] arr)
         {
             int max = Int32.MinValue;
-
             for(int i = 0; i < arr.Length; ++i)
             {
                 if (arr[i] > max)

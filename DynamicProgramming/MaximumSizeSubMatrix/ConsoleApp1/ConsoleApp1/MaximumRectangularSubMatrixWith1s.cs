@@ -62,9 +62,7 @@ namespace ConsoleApp1
                     if (stack.Any() == false)
                         area = hist[top] * i;
                     else
-                    {
                         area = hist[top] * (i - stack.Peek() - 1);
-                    }
 
                     if (area > maxArea)
                         maxArea = area;
@@ -79,9 +77,7 @@ namespace ConsoleApp1
                 if (stack.Any() == false)
                     area = hist[top] * i;
                 else
-                {
                     area = hist[top] * (i - stack.Peek() - 1);
-                }
 
                 if (area > maxArea)
                     maxArea = area;

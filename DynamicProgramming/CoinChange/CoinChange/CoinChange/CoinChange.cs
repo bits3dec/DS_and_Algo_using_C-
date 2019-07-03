@@ -57,6 +57,7 @@ namespace CoinChange
         }
 
         //T: O(nc)  S: O(nv)
+        //Assuming coins[0] = 1
         public int NumberOfCoinChanges_2D(int[] coins, int n, int v)
         {
             //T[i, j] denotes the num of ways to get a value "j" from coins[0]...coins[i]
@@ -66,7 +67,7 @@ namespace CoinChange
             for (int i = 0; i < n; ++i)
                 T[i, 0] = 1;
             for (int j = 1; j <= v; ++j)
-                T[0, j] = 1;
+                T[0, j] = 1; //Assuming coins[0] = 1
 
             for (int i = 1; i < n; ++i)
             {
